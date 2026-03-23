@@ -7,7 +7,7 @@ import {
 } from 'miaoda-sc-plugin'
 
 const base = String(process.argv[process.argv.length - 1])
-const publicPath = /^http/.test(base) ? base : '/'
+const publicPath = base.startsWith('http') ? base : '/'
 
 const sentryDsn = process.env.INJECT_SENTRY_DSN
 const environment = process.env.MIAODA_ENV

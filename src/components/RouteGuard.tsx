@@ -4,7 +4,15 @@ import type {TabBarItem} from '@tarojs/taro'
 import {useAuth} from '@/contexts/AuthContext'
 
 // Public pages that don't require authentication
-const PUBLIC_PAGE_PATHS = ['/pages/login/index']
+const PUBLIC_PAGE_PATHS = [
+  '/pages/login/index',
+  '/pages/home/index',
+  '/pages/cases/index',
+  '/pages/volunteers/index',
+  '/pages/clients/index',
+  '/pages/case-detail/index',
+  '/pages/story-detail/index'
+]
 
 const LOGIN_PAGE_PATH = '/pages/login/index'
 

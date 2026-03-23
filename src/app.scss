@@ -4,39 +4,47 @@
 
 @layer base {
   :root {
+    /* Basic semantic colors — ALL values MUST be HSL triplets: H(0-360) S%(0-100) L%(0-100). Do NOT use RGB. */
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 217 33% 17%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 217 33% 17%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 72.22% 50.59%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5% 64.9%;
+    --popover-foreground: 217 33% 17%;
+    
+    /* 主色调：专业的深蓝色（科技感） */
+    --primary: 217 91% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 217 70% 65%;
+    
+    /* 次要色：青色（创新感） */
+    --secondary: 195 85% 50%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* 强调色：温暖的橙色（行动号召） */
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* 柔和背景色 */
+    --muted: 217 30% 96%;
+    --muted-foreground: 217 20% 45%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 20% 88%;
+    --input: 217 20% 88%;
+    --ring: 217 91% 45%;
     --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 240 5% 64.9%;
+    
+    /* 渐变色 */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 45%), hsl(217 70% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(195 85% 50%), hsl(217 70% 65%));
+    --gradient-subtle: linear-gradient(180deg, hsl(217 30% 98%), hsl(217 30% 96%));
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 45%) 0%, hsl(195 85% 50%) 100%);
+    
+    /* 阴影 */
+    --shadow-elegant: 0 10px 30px -10px hsl(217 91% 45% / 0.3);
+    --shadow-card: 0 4px 12px hsl(217 20% 20% / 0.08);
   }
 
   .dark {
@@ -72,5 +80,38 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .bg-gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+  
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
   }
 }
