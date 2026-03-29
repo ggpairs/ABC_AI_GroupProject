@@ -42,85 +42,91 @@ export default function Home() {
   }, [currentSeason])
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="bg-gradient-hero px-6 py-12 text-center">
-        <h1 className="text-4xl font-bold text-white mb-3">ABC数字创造营</h1>
-        <p className="text-2xl text-white/90">用数字技术创造价值</p>
+    <div className="min-h-screen bg-gray-50">
+      {/* 深蓝渐变Banner */}
+      <div className="bg-gradient-to-r from-slate-700 to-blue-600 px-6 py-14 text-center">
+        <h1 className="text-4xl font-bold text-white mb-4 drop-shadow-sm">ABC数字创造营</h1>
+        <p className="text-xl text-white/95 opacity-95">用数字技术创造价值 · 赋能企业数字化转型</p >
       </div>
 
-      <div className="px-6 py-8">
-        <div className="bg-card rounded-2xl p-6 shadow-card mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-bold text-foreground">关于我们</h2>
+      <div className="px-5 py-8">
+        {/* 关于我们卡片 */}
+        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-10">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-2xl font-bold text-gray-800">关于我们</h2>
             <button
               type="button"
               onClick={() => setExpanded(!expanded)}
-              className="text-xl text-primary flex items-center justify-center leading-none">
+              className="text-lg text-blue-600 font-medium">
               {expanded ? '收起' : '展开'}
             </button>
           </div>
-          <div className={`text-xl text-muted-foreground leading-relaxed ${expanded ? '' : 'line-clamp-3'}`}>
-            ABC数字创造营分社是ABC总社旗下的地方分支机构，致力于通过数字技术赋能企业和组织的数字化转型。我们汇聚了一群充满热情的志愿者，包括大学生和职场人，共同为客户提供专业的数字化解决方案。
-            <br />
-            <br />
-            我们的使命是让数字技术真正服务于社会，帮助更多企业和组织实现数字化转型，同时为志愿者提供实践和成长的平台。
+          <div className={`text-lg text-gray-600 leading-loose ${expanded ? '' : 'line-clamp-3'}`}>
+            ABC数字创造营分社是ABC总社旗下优质地方分支机构，聚焦数字技术赋能企业与组织数字化转型升级。
+            我们汇聚大学生、职场志愿者等多元力量，为合作方提供专业、高效的定制化数字化解决方案。
+            <br /><br />
+            我们坚守初心，让数字技术落地民生与产业，助力更多伙伴实现数字化成长；同时搭建优质实践平台，
+            让每一位志愿者收获能力提升与价值成长。
           </div>
         </div>
 
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-foreground">精选案例</h2>
+        {/* 精选案例 */}
+        <div className="mb-10">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-2xl font-bold text-gray-800">精选案例</h2>
             <button
               type="button"
               onClick={() => Taro.switchTab({url: '/pages/cases/index'})}
-              className="text-xl text-primary flex items-center gap-1 leading-none">
+              className="text-base text-blue-600 flex items-center gap-1 font-medium">
               <span>查看更多</span>
-              <div className="i-mdi-chevron-right text-2xl" />
+              <div className="i-mdi-chevron-right" />
             </button>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-5">
             {featuredCases.map((caseItem) => (
               <CaseCard key={caseItem.id} case={caseItem} />
             ))}
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 mb-8">
+        {/* 按钮 */}
+        <div className="flex flex-col gap-5 mb-10">
           <button
             type="button"
             onClick={() => Taro.switchTab({url: '/pages/volunteers/index'})}
-            className="w-full py-6 bg-gradient-primary text-white text-2xl font-bold rounded-2xl shadow-elegant flex items-center justify-center leading-none">
+            className="w-full py-5 bg-slate-700 text-white text-xl font-bold rounded-2xl shadow-sm">
             成为志愿者
           </button>
           <button
             type="button"
             onClick={() => Taro.switchTab({url: '/pages/clients/index'})}
-            className="w-full py-6 bg-gradient-secondary text-white text-2xl font-bold rounded-2xl shadow-elegant flex items-center justify-center leading-none">
+            className="w-full py-5 bg-blue-600 text-white text-xl font-bold rounded-2xl shadow-sm">
             成为客户
           </button>
         </div>
 
+        {/* 招募季卡片 */}
         {currentSeason && (
           <div
             onClick={() => Taro.switchTab({url: '/pages/volunteers/index'})}
-            className="bg-gradient-subtle rounded-2xl p-6 shadow-card">
+            className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="text-2xl font-bold text-foreground">{seasonText}</h3>
+              <h3 className="text-xl font-bold text-gray-800">{seasonText}</h3>
               <span
-                className={`px-4 py-2 rounded-full text-xl font-medium ${
+                className={`px-4 py-2 rounded-full text-base font-medium ${
                   currentSeason.status === 'ongoing'
-                    ? 'bg-accent text-accent-foreground'
+                    ? 'bg-blue-100 text-blue-600'
                     : currentSeason.status === 'upcoming'
-                      ? 'bg-secondary text-secondary-foreground'
-                      : 'bg-muted text-muted-foreground'
+                      ? 'bg-amber-100 text-amber-600'
+                      : 'bg-gray-100 text-gray-500'
                 }`}>
                 {statusText}
               </span>
             </div>
-            <p className="text-xl text-muted-foreground mb-4">{currentSeason.description}</p>
-            <div className="flex items-center gap-2 text-primary">
-              <span className="text-xl">了解详情</span>
-              <div className="i-mdi-arrow-right text-2xl" />
+            <p className="text-lg text-gray-600 mb-4">{currentSeason.description}</p >
+            <div className="flex items-center gap-2 text-blue-600 font-medium">
+              <span className="text-lg">了解详情</span>
+              <div className="i-mdi-arrow-right" />
             </div>
           </div>
         )}
